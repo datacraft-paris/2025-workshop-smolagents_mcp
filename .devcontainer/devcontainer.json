@@ -1,0 +1,17 @@
+{
+    "name": "Workshop Codespace",
+    "image": "mcr.microsoft.com/devcontainers/python:3.13",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python",
+          "ms-toolsai.jupyter"
+        ]
+      }
+    },
+    "features": {
+      "ghcr.io/devcontainers/features/python:1": {}
+    },
+    "postStartCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && uv sync && source .venv/bin/activate",
+    "remoteUser": "vscode"
+}
