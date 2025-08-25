@@ -34,7 +34,8 @@ class WebSearchResponse(BaseModel):
 async def root():
     return {"message": "Workshop SmolAgents MCP API", "version": "1.0.0"}
 
-@app.post("/query-events", response_model=str)
+# TODO: name the endpoint
+@app.post("/...", response_model=str)
 async def query_events_db(request: QueryRequest):
     """
     Query the events database with SQL.
@@ -56,7 +57,8 @@ async def query_events_db(request: QueryRequest):
             output += "\n" + str(row)
     return output
 
-@app.post("/web-search", response_model=WebSearchResponse)
+# TODO: name the endpoint
+@app.post("/...", response_model=WebSearchResponse)
 async def web_search(request: WebSearchRequest):
     """
     Search the web using DuckDuckGo and return the top 3 results.
@@ -67,7 +69,8 @@ async def web_search(request: WebSearchRequest):
             results.append(SearchResult(title=r['title'], url=r['href']))
     return WebSearchResponse(results=results)
 
-@app.post("/summarize-url", response_model=str)
+# TODO: name the endpoint
+@app.post("/...", response_model=str)
 async def summarize_url(request: SummarizeUrlRequest):
     """
     Download and summarize the readable text content of a webpage.
@@ -93,7 +96,8 @@ async def health_check():
     """Health check endpoint"""
     return {"status": "healthy"}
 
-mcp = FastMCP.from_fastapi(app=app)
+# TODO: convert the FastAPI app to a FastMCP app using FastMCP.from_fastapi
+mcp = ...
 
 if __name__ == "__main__":
-    mcp.run()
+    # TODO: run the mcp server using the `run` method of the mcp object

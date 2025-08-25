@@ -14,12 +14,12 @@ def query_events_db(query: str) -> str:
 
     Available columns include:
     - nomenclature: unique identifier or code for the event (e.g. "0706-MiniFormation-Capdigital")
-    - titre: title of the event (e.g. "Introduction to Generative AI")
-    - description: detailed description of the event
+    - titre: ...
+    - description: ...
     - date: date of the event, stored as text (e.g. "2024-06-03")
     - horaire: time slot or duration of the event (e.g. "9h00 - 17h30")
     - tag: optional topic tags (e.g. "#DataGouv", "#IA")
-    - langue: language of the event (e.g. "français", "anglais")
+    - langue: ...
 
     You can write SQL queries such as:
     - SELECT titre FROM evenements WHERE langue = 'français';
@@ -39,7 +39,8 @@ def query_events_db(query: str) -> str:
     engine = create_engine("sqlite:///../../data/events.db")
     output = ""
     with engine.connect() as con:
-        rows = con.execute(text(query))
+        # TODO: Execute the query using con.execute and the `text` function
+        rows = con.execute(...)
         for row in rows:
             output += "\n" + str(row)
     return output
@@ -50,16 +51,17 @@ def web_search(query: str) -> str:
     Search the web using DuckDuckGo and return the top 3 results with title and URL.
 
     Args:
-        query: The search query to submit to the search engine.
+        query: ...
     
     Returns:
-        A short list of search results with titles and links.
+        ...
     """
     results = []
     with DDGS() as ddgs:
         for r in ddgs.text(query, region="wt-wt", safesearch="Off", max_results=3):
             results.append(f"- {r['title']} ({r['href']})")
-    return "\n".join(results)
+    # TODO: transform the list of results into a "\n"-separated string using str.join
+    return ...
 
 @tool
 def summarize_url(url: str) -> str:
@@ -79,9 +81,9 @@ def summarize_url(url: str) -> str:
 
         soup = BeautifulSoup(response.text, "html.parser")
 
-        # Remove scripts and styles
+        # TODO: Remove scripts and styles using tag.decompose()
         for tag in soup(["script", "style", "noscript"]):
-            tag.decompose()
+            ...
 
         # Extract visible text
         text = soup.get_text(separator="\n", strip=True)

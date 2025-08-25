@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 
+# TODO: fill title and url typing
 class Event(BaseModel):
-    title: str
+    title: ...
     date: str
     time: str
-    url: str
+    url: ...
     location: str
