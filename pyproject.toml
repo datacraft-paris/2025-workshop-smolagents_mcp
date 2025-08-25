@@ -21,3 +21,8 @@ build-backend = "uv_build"
 
 [tool.uv.build-backend]
 packages = ["src/workshop_smolagents_mcp"]
+
+[dependency-groups]
+dev = [
+    "jupytext>=1.17.2",
+]
