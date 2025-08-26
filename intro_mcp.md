@@ -56,3 +56,27 @@ There are two main MCP libraries in Python:
 We have a slight preference for `fastmcp`, because it holds more feature at the moment.
 
 Keep in mind that both libraries are very close to each other, and it's always possible to switch from one to the other.
+
+## Using MCP in practice, in a business
+
+The most straight-forward way to use MCP in a business is to think of it as a very simple way for non-technical people to run code at scale.
+
+Onboarding people on new tools every time, with new interfaces is very tiring, both for the onboardee and the onboarder.
+
+Since the generative AI interface has become a standard that a lot of people can use, it's very easy to onboard people on new capabilities on these kind of tools.
+
+With MCP, you can easily demo the usage of a tool to a non-technical audience, and have them run it the minute after, on their day-to-day GenAI interface (ChatGPT, Claude, Enterprise interface..)
+
+For users in general (incl. technical users), it's a way of centralizing the tooling, and having a single interface to interact with the tools:
+
+- Gmail MCP: "Send an email to Jeremy, let him know that I'm going to be 5 minutes late to our coffee" -> the agent can do that in the back and I will only need to confirm the final draft.
+
+- Github MCP: "Create an empty github repository based on the XXX template you can find on our company github"
+
+- Github MCP: "Write a recap of all pending github issues per-feature in my open-source repo"
+
+- Custom, company MCP: "Can you create a plot that draws the proportion of paying users per month?"
+
+- Custom, company MCP: "Is our customer churn rate increasing or decreasing in the last 6 months?"
+
+- Slack MCP + Github MCP: "Send a message to Alex, asking him to review my latest PR on the recommender system repo"
