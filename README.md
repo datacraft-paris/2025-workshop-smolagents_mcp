@@ -36,3 +36,7 @@ source .venv/bin/activate
 ![](./assets/3_codespaces.png)
 
 Wait for initialization to complete (approx. 5 minutes), and you should be able to start the workshop!
+
+## [Start the workshop](./workshop_schedule.md)
+
+Now, you can get started with the workshop, by looking at [this file](./workshop_schedule.md)
