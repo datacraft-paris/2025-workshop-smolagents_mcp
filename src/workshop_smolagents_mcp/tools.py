@@ -22,10 +22,10 @@ def query_events_db(query: str) -> str:
     - langue: ...
 
     You can write SQL queries such as:
-    - SELECT titre FROM evenements WHERE langue = 'français';
-    - SELECT COUNT(*) FROM evenements WHERE tag LIKE '%IA%';
-    - SELECT DISTINCT langue FROM evenements;
-    - SELECT * FROM evenements ORDER BY date DESC;
+    - ...
+    - ...
+    - ...
+    - ...
 
     Note: the `date` column is stored as text. If you need to sort or filter by date,
     you can use SQL date functions (e.g. `STRFTIME`) or cast the column as needed.
@@ -36,11 +36,12 @@ def query_events_db(query: str) -> str:
     Returns:
         A string containing the query results in plain text format.
     """
-    engine = create_engine("sqlite:///../../data/events.db")
+    # TODO: create the engine
+    engine = ...
     output = ""
     with engine.connect() as con:
-        # TODO: Execute the query using con.execute and the `text` function
-        rows = con.execute(...)
+        # TODO: Execute the query, wrap your query using the `text` function
+        rows = ...
         for row in rows:
             output += "\n" + str(row)
     return output
@@ -49,7 +50,6 @@ def query_events_db(query: str) -> str:
 def web_search(query: str) -> str:
     """
     Search the web using DuckDuckGo and return the top 3 results with title and URL.
-
     Args:
         query: ...
     
@@ -59,14 +59,15 @@ def web_search(query: str) -> str:
     results = []
     with DDGS() as ddgs:
         for r in ddgs.text(query, region="wt-wt", safesearch="Off", max_results=3):
-            results.append(f"- {r['title']} ({r['href']})")
+            # TODO: append a f-string formatted result to the results list, using fields `title` and `href` of the variable `r` (dict)
+            results.append(...)
     # TODO: transform the list of results into a "\n"-separated string using str.join
     return ...
 
 @tool
 def summarize_url(url: str) -> str:
     """
-    Downloads and summarizes the readable text content of a given webpage.
+    ...
 
     Args:
         url: A valid HTTP or HTTPS URL pointing to a public webpage.
@@ -76,8 +77,9 @@ def summarize_url(url: str) -> str:
     """
     try:
         headers = {"User-Agent": "Mozilla/5.0"}
-        response = requests.get(url, headers=headers, timeout=10)
-        response.raise_for_status()
+        #TODO: make a get request and raise an exception if the request fails
+        response = ...
+        ...
 
         soup = BeautifulSoup(response.text, "html.parser")
 

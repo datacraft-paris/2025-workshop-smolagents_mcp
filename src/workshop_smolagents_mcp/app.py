@@ -27,8 +27,9 @@ class SearchResult(BaseModel):
     title: str
     url: str
 
+# TODO: define the response model for the web search endpoint
 class WebSearchResponse(BaseModel):
-    results: List[SearchResult]
+    results: ...
 
 @app.get("/")
 async def root():
@@ -49,10 +50,12 @@ async def query_events_db(request: QueryRequest):
     - tag: topic tags
     - langue: language of the event
     """
-    engine = create_engine("sqlite:///../../data/events.db")
+    # TODO: create the engine
+    engine = ...
     output = ""
     with engine.connect() as con:
-        rows = con.execute(text(request.query))
+        # TODO: execute the query
+        rows = ...
         for row in rows:
             output += "\n" + str(row)
     return output
@@ -66,7 +69,8 @@ async def web_search(request: WebSearchRequest):
     results = []
     with DDGS() as ddgs:
         for r in ddgs.text(request.query, region="wt-wt", safesearch="Off", max_results=3):
-            results.append(SearchResult(title=r['title'], url=r['href']))
+            # TODO: append a f-string formatted result to the results list
+            results.append(...)
     return WebSearchResponse(results=results)
 
 # TODO: name the endpoint
@@ -76,8 +80,9 @@ async def summarize_url(request: SummarizeUrlRequest):
     Download and summarize the readable text content of a webpage.
     """
     headers = {"User-Agent": "Mozilla/5.0"}
-    response = requests.get(request.url, headers=headers, timeout=10)
-    response.raise_for_status()
+    # TODO: make a get request and raise an exception if the request fails
+    response = ...
+    ...
 
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -96,8 +101,8 @@ async def health_check():
     """Health check endpoint"""
     return {"status": "healthy"}
 
-# TODO: convert the FastAPI app to a FastMCP app using FastMCP.from_fastapi
+# TODO: convert the FastAPI app to a FastMCP server
 mcp = ...
 
 if __name__ == "__main__":
-    # TODO: run the mcp server using the `run` method of the mcp object
+    # TODO: run the mcp server

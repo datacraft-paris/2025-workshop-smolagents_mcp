@@ -7,13 +7,13 @@ from workshop_smolagents_mcp.event import Event
 mcp = FastMCP(...)
 
 # TODO: name the mcp tool
-@mcp.tool(name=..., description="Parse events from datacraft.paris agenda page")
+@mcp.tool(name=..., description=...)
 async def parse_datacraft_events() -> list[Event]:
     """Parse events from datacraft.paris agenda page"""
     # TODO: Fill the url variable with the correct url (datacraft.paris agenda page)
     url = "..."
     async with httpx.AsyncClient() as client:
-        # TODO: use the client to get the url using the `get` method of the client.
+        # TODO: use the client to make a get request to the url.
         response = await ...
     response.raise_for_status()
 
@@ -21,7 +21,8 @@ async def parse_datacraft_events() -> list[Event]:
     events = []
 
     # Find events container
-    # TODO: find the events container using the `find` method of the soup object, with parameters class_="tribe-events-calendar-list"
+    # TODO: find the events container using the soup object
+    # Hint: it has a class attribute equal to "tribe-events-calendar-list"
     events_container = ...
     event_containers = events_container.find_all(
         class_="tribe-events-calendar-list__event-wrapper"
@@ -41,11 +42,11 @@ async def parse_datacraft_events() -> list[Event]:
         event_location = event_container.find(
             class_="tribe-events-calendar-list__event-venue"
         ).text.strip()
-        # TODO: using variables event_title, event_url, event_date, event_time, event_location, append a new Event object to the events list
+        # TODO: append a new Event object to the events list
         events.append(
             ...
         )
 
     return events
 
-# TODO: run the server using the `run` method of the mcp object, by wrapping it in a if __name__ == "__main__" block
+# TODO: run the MCP server using by wrapping it in a if __name__ == "__main__" block
