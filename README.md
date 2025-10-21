@@ -1,4 +1,9 @@
-# GenAI Workshop - Building AI Agents and MCP Servers
+<p align="center">
+  <img src="assets/datacraft_logo.svg" alt="Logo" width="337"/>
+</p>
+<br/>
+
+# WORKSHOP GENAI – BUILDING AI AGENTS AND MCP SERVERS
 
 Welcome to this hands-on workshop on **Building AI Agents and MCP Servers**.
 In this workshop, we will build simple AI Agents using the library `smolagents` from HuggingFace and MCP Servers using the library `fastmcp`.
